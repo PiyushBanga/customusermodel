@@ -1,0 +1,12 @@
+<h1>Student Dashboard</h1>
+    <h2>Welcome, {{ user.get_full_name }}!</h2>
+    <h3>Your Class:</h3>
+    {% if student.classes.all %}
+        <ul>
+        {% for class_obj in student.classes.all %}
+            <li>{{ class_obj.name }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You are not assigned to any class yet.</p>
+    {% endif %}

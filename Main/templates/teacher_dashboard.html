@@ -1,0 +1,19 @@
+
+    <h1>Teacher Dashboard</h1>
+    <h2>Welcome, {{ user.get_full_name }}!</h2>
+    {% if classes %}
+        <h3>Students in your classes:</h3>
+        {% for class_obj, students in classes.items %}
+            <h4>{{ class_obj.name }}</h4>
+            {% if students %}
+                <ul>
+                {% for student in students %}
+                    <li>{{ student.user.get_full_name }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No students in this class.</p>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>You are not assigned to any class yet.</p>
